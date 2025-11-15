@@ -1,0 +1,411 @@
+/* --- 1. CONFIGURAÇÕES GLOBAIS E TEMA --- */
+:root {
+    --cor-fundo-escuro: #101010;
+    --cor-fundo-secundario: #1a1a1a;
+    --cor-texto-principal: #e0e0e0;
+    --cor-texto-secundario: #8f8f8f;
+    --cor-destaque: #b71c1c; /* Vermelho escuro/sangue */
+    --cor-destaque-hover: #e53935;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-texto-principal);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+p {
+    color: var(--cor-texto-secundario);
+    font-size: 1.1rem;
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* --- 2. NAVBAR (Menu Fixo) --- */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    
+    background-color: rgba(10, 10, 10, 0.5);
+    backdrop-filter: blur(10px);
+    
+    border-bottom: 1px solid #333;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.btn-nav {
+    background-color: var(--cor-destaque);
+    color: #fff !important;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.btn-nav:hover {
+    background-color: var(--cor-destaque-hover);
+    color: #fff !important;
+}
+
+
+/* --- 3. SEÇÃO HERO --- */
+#hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#fundo-header {
+    width: 105%;
+    height: 105%;
+    position: absolute;
+    top: -2.5%;
+    left: -2.5%;
+    z-index: 1;
+    object-fit: cover;
+    filter: blur(5px);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 20px;
+}
+
+.hero-logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    color: #eee;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Botão CTA com Animação de Brilho */
+.btn-cta {
+    background-color: var(--cor-destaque);
+    color: #fff;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 5px;
+    position: relative; 
+    overflow: hidden;
+    display: inline-block; 
+    z-index: 1;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: var(--cor-destaque-hover);
+    transform: scale(1.05);
+}
+
+/* O "brilho" em si */
+.btn-cta .shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 30%; 
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-20deg);
+    z-index: 2;
+    
+    animation: animateShine 5s ease-in-out infinite;
+}
+
+
+/* --- 4. SEÇÃO SOBRE --- */
+#sobre {
+    background-color: var(--cor-fundo-secundario);
+}
+
+#sobre p {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* --- 5. SEÇÃO RECURSOS (Cards) --- */
+#recursos {
+    background-color: var(--cor-fundo-escuro);
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: var(--cor-fundo-secundario);
+    border: 1px solid #333;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+    color: var(--cor-destaque);
+    font-size: 1.5rem;
+}
+
+/* --- 6. SEÇÃO GALERIA --- */
+#galeria {
+    background-color: var(--cor-fundo-secundario);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #333;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+/* --- 7. RODAPÉ --- */
+footer {
+    background-color: #000;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+}
+
+/* --- 8. RESPONSIVIDADE (Celular) --- */
+/* ATUALIZADO: Adicionei mais regras aqui */
+@media (max-width: 768px) {
+
+    /* 1. Diminui o espaçamento lateral da página */
+    .container {
+        padding: 0 15px; 
+    }
+
+    /* 2. Diminui o padding vertical das seções */
+    section {
+        padding: 50px 0;
+    }
+
+    /* 3. Diminui os títulos grandes (ex: "BEM-VINDO") */
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    /* 4. Ajusta o título principal */
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    /* 5. Regras que já tínhamos */
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .navbar .btn-nav {
+        display: none;
+    }
+}
+
+/* --- 9. MENU HAMBÚRGUER E SIDEBAR --- */
+
+.menu-toggle {
+    display: block; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    margin-right: 15px;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background-color: var(--cor-fundo-secundario);
+    padding: 20px;
+    z-index: 2000;
+    
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in-out;
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.sidebar-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.sidebar-close i {
+    color: var(--cor-texto-principal);
+    font-size: 2rem;
+    transition: color 0.3s ease;
+}
+.sidebar-close:hover i {
+    color: var(--cor-destaque);
+}
+
+.sidebar-links {
+    list-style: none;
+    margin-top: 60px;
+}
+.sidebar-links li {
+    margin-bottom: 25px;
+}
+.sidebar-links a {
+    text-decoration: none;
+    color: var(--cor-texto-principal);
+    font-size: 1.3rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+.sidebar-links a:hover {
+    color: var(--cor-destaque);
+}
+.sidebar-links .btn-nav {
+    padding: 10px 15px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1999;
+}
+.overlay.active {
+    display: block;
+}
+
+/* --- 10. ANIMAÇÃO DE BRILHO --- */
+
+@keyframes animateShine {
+    0% {
+        left: -100%;
+    }
+    
+    40% {
+        left: 130%;
+    }
+    
+    100% {
+        left: 130%;
+    }
+}
